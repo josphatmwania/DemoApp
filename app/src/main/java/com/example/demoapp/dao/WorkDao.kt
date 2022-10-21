@@ -1,9 +1,12 @@
 package com.example.demoapp.dao
 
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.demoapp.entity.Word
 
+
+@Dao
 interface WorkDao {
 
     /**
@@ -16,9 +19,14 @@ interface WorkDao {
     /**
      * Inserting a word
      */
+    /**
+     * The selected onConflict strategy ignores a new word
+     * if it's exactly the same as one already in the list.
+     */
 
-    @Insert(onConflict = onConflictStrategy.IGNORE)
-    suspend fun insert(word: Word)
+//    @Insert(onConflict = onConflictStrategy.IGNORE)
+//    suspend fun insert(word: Word)
+
 
     /**
      * Deleting all words
