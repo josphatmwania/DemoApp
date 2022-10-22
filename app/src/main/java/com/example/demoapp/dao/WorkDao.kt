@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.demoapp.entity.Word
-
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface WorkDao {
@@ -14,7 +14,7 @@ interface WorkDao {
      */
 
     @Query("SELECT * FROM word_table ORDER BY word ASC")
-    fun getAlphabetizeWords(): List<Word>
+    fun getAlphabetizeWords(): Flow<List<Word>>
 
     /**
      * Inserting a word
