@@ -34,11 +34,7 @@ interface WorkDao {
     
     @Query("DELETE FROM word_table")
     suspend fun deleteAll()
-
-
-
-
-
+    abstract fun insert(word: Word)
 
 
 }
