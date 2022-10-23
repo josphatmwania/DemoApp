@@ -1,4 +1,4 @@
-package com.example.demoapp.viewmodel
+ package com.example.demoapp.viewmodel
 
 import androidx.lifecycle.*
 import com.example.demoapp.entity.Word
@@ -27,6 +27,12 @@ fun insert(word: Word) = viewModelScope.launch {
     }
 
 
+    /**
+     * created the ViewModel and implemented a ViewModelProvider.Factory
+     * that gets as a parameter the dependencies needed to create WordViewModel: the WordRepository.
+     *
+     *  Manual Dependency Injection
+     */
 }
 class WordViewModelFactory(private val repository: WordRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>) : T {
@@ -36,7 +42,6 @@ class WordViewModelFactory(private val repository: WordRepository) : ViewModelPr
         }
         throw IllegalArgumentException("Unknown ViewModel Class")
     }
-
 
 
 }
